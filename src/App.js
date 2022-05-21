@@ -1,23 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-
+import {increaseNum,decreaseNum} from './actions';
+import { useDispatch,useSelector } from 'react-redux';
 function App() {
+  const dispatch = useDispatch()
+  const val = useSelector((state)=>state.upDown)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <h1>{val} = dklsmd</h1>
+
+         <input type="button" value="Increment" onClick={()=> { dispatch(increaseNum()) }}></input>
+         <br></br>
+         <br></br>
+         <input type="button" value="Decrement" onClick={()=> { dispatch(decreaseNum()) }}></input>
+
     </div>
   );
 }
